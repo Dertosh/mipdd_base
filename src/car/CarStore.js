@@ -1,17 +1,14 @@
 import React from 'react';
 import { createStore, combineReducers } from 'redux';
 
-const initialCarsState = {
-    _items: [],
-    cars: []
+const initialCarState = {
+    _id: string
 }
 
-const carReducer = (state = initialCarsState, action) => {
-
+const carReducer = (state = initialCarState, action) => {
     switch(action.type){
-        case 'CAR_LIST_SUCCESS': {
-            return Object.assign({}, state, {cars: action.cars._items})
-        }
+        case 'CARS_LIST_SUCCESS':
+            return Object.assign({},state, {cars: action._id})
     }
     return state;
 }

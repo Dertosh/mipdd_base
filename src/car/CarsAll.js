@@ -17,7 +17,7 @@ class CarsAll extends Component {
         axios.get(apiUrl + "/cars"
         ).then(
             response => {
-                store.dispatch({
+                this.props.dispatch({
                     type: 'CAR_LIST_SUCCESS',
                     cars: response.data
                 });
@@ -40,7 +40,7 @@ class CarsAll extends Component {
             <div className="CarsAll">
                 {this.state.isLoading && <div>Загрузка...</div>}
                 {
-                    !this.state.isLoading && this.state.carsItems.map((car,i)=>(<CarList key={i} car={car}/>))
+                    !this.state.isLoading && this.props.cars.map((car,i)=>(<CarList key={i} car={car}/>))
                 }
             </div>
         );
@@ -48,9 +48,13 @@ class CarsAll extends Component {
 }
 
 const mapStateToProps = store => {
-    {
+    return{
         cars: store.carState.cars
     }
 }
 
-export default connect(mapStateToProps)(CarsAll);
+const mapDispatchToProps = dispatch => ({
+  dispatch
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CarsAll);

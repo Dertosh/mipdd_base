@@ -11,7 +11,6 @@ class CarList extends React.Component{
         return(
             <div>
                 <Link to={`/car/${car.number}`} id={car._id}> {car.title} </Link>
-
             </div>
         );
     }

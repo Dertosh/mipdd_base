@@ -14,7 +14,7 @@ class Main extends Component{
                     <Switch>
                         <Route exact path='/' component={Home}/>
                         <Route path='/cars' component={Cars} source = {apiUrl}/>
-                        <Route path='/cars/:number' component={Car}/>
+                        <Route path='/car/:number' component={Car}/>
                     </Switch>
                 </main>
             </div>
